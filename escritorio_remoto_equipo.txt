@@ -1,0 +1,3 @@
+Equipo: imat-rpi-013.rpi-deac.alumnos.upcont
+usuario: pi
+contraseña: imat@ICAI2023
