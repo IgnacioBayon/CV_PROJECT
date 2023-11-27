@@ -1,19 +1,26 @@
 import cv2
+from picamera2 import Picamera2
 from time import sleep
 
-def take_pic(i: int):
-    cap = cv2.VideoCapture(0)
-    ret, frame = cap.read()
-    cv2.imwrite(f'pic_{i}.jpg', frame)
-    cv2.imshow(f'pic_{i}.jpg', frame)
-    cap.release()
-    cv2.destroyAllWindows()
+def take_pictures():
+    picam = Picamera2()
+    picam.preview_configuration.main.size=(1280/2, 720/2)
+    picam.preview_configuration.main.format="RGB888"
+    picam.preview_configuration.align()
+    picam.configure("capture")
+    picam.start()
+
+    i = 1
+    while True:
+        # Take a picture if p is pressed and break program if q is pressed
+        frame = picam.capture_array()
+        cv2.imshow("picam", frame[::-1])
+        if cv2.waitKey(1) & 0xFF == ord('p'):
+            cv2.imwrite("images/image"+str(i)+".jpg", frame[::-1])
+            i += 1
+        elif cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
 
 if __name__ == '__main__':
-
-    while True:
-        i = 0
-        take_pic(i)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
-        sleep(5)
+    take_pictures()    
