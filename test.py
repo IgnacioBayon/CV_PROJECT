@@ -11,7 +11,7 @@ def stream_video():
 
     while True:
         frame = picam.capture_array()
-        cv2.imshow("picam", cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)[::-1])
+        cv2.imshow("picam", frame[::-1])
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
     cv2.destroyAllWindows()
