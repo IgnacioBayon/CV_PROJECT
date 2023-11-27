@@ -14,9 +14,9 @@ def take_pictures():
     while True:
         # Take a picture if p is pressed and break program if q is pressed
         frame = picam.capture_array()
-        cv2.imshow("picam", frame[::-1])
+        cv2.imshow("picam", cv2.cvtColor(frame, cv2.COLOR_RGB2BGR)[::-1])
         if cv2.waitKey(1) & 0xFF == ord('p'):
-            cv2.imwrite("images/image"+str(i)+".jpg", frame[::-1])
+            cv2.imwrite("images_checkers/image"+str(i)+".jpg", frame[::-1])
             i += 1
         elif cv2.waitKey(1) & 0xFF == ord('q'):
             break
