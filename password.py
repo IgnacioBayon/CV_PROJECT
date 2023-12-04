@@ -12,7 +12,7 @@ def password_boards() -> (np.ndarray, np.ndarray, np.ndarray):
 
     # Board 1 - Initial state
     board1 = board_zeros.copy()
-    board1[0] = [0, -1, 0, -1, 0, -1, 0, 0]
+    board1[0] = [0, -1, 0, -1, 0, -1, 0, -1]
     board1[-1] = [1, 0, 1, 0, 1, 0, 1, 0]
 
     # Board 2 - Initial state with a 0 in (0,-1)
@@ -32,19 +32,15 @@ def password_unlock(current_matrix, security_level=0):
     
     if security_level == 0 and np.array_equal(current_matrix, boards[0]):
         security_level += 1
+        print(current_matrix)
         print('Security level 1')
     elif security_level == 1 and np.array_equal(current_matrix, boards[1]):
         security_level += 1
+        print(current_matrix)
         print('Security level 2')
     elif security_level == 2 and np.array_equal(current_matrix, boards[2]):
         security_level += 1
+        print(current_matrix)
         print('Security level 3')
     
     return security_level
-
-
-if __name__ == "__main__":
-    boards = password_boards()
-    print(boards[0])
-    print(boards[1])
-    print(boards[2])
