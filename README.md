@@ -67,6 +67,6 @@ To see the execution, please check the video (if you have access).
 As we have seen, as the tracking is done from the start, there is no actual use for the sequencing. We have considered the sequencing could unlock a certain recommendation tool that could guide you in the checkers game. This tool could consist of a function that, given the current state of the board, would recommend you the best move to do. We could use a database of checkers games to train a neural network (deep learning) and possibly allow the algorithm to play against istelf for further training. This would be a very interesting project to develop in the future.
 
 ## Diagram
-
+We have decided to integrate the Tracker in the loop within thed diagam, as our sequence detector relies entirely on the tracker. Ee have also decided to include the possible move recommender, although it is not yet in our project, to give use to the security system. 
 
 ![Diagram](projectDiagram.jpg)
