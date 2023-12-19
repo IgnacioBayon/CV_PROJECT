@@ -58,6 +58,11 @@ Calibration implemented using the OpenCV library. These are the simplified steps
         2.3 When each new state is registered, we will check with the password function if the sequencing is correct.
 
 
+## Results
+We have got very good results with the tracker. The camera is able to detect the pieces in real time and the sequencing works perfectly too. The color detection was very accurate, but as we have mentioned earlier on, the project is subject to the lighting conditions and depends on it to an certain extent. Nevertheless, we are very much satisfied with the results obtained, as we have achieved our main goal, which was to track a checkers game in real time keeping a register of the board states.
+
+To see the execution, please check the video (if you have access). 
+
 ## Future improvements
 As we have seen, as the tracking is done from the start, there is no actual use for the sequencing. We have considered the sequencing could unlock a certain recommendation tool that could guide you in the checkers game. This tool could consist of a function that, given the current state of the board, would recommend you the best move to do. We could use a database of checkers games to train a neural network (deep learning) and possibly allow the algorithm to play against istelf for further training. This would be a very interesting project to develop in the future.
 
