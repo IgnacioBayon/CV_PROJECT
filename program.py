@@ -30,12 +30,14 @@ def get_chessboard(img, corners, nx, ny):
     # For source points I'm grabbing the outer four detected corners
     src = np.float32([corners[0], corners[nx - 1], corners[-1], corners[-nx]])
 
-    # For destination points, I'm arbitrarily choosing some points to be
-    # a nice fit for displaying our warped result
-    # again, not exact, but close enough for our purposes
-    dst = np.float32([[offset, offset], [img_size[0] - offset, offset],
-                        [img_size[0] - offset, img_size[1] - offset],
-                        [offset, img_size[1] - offset]])
+    # For destination points, I'm choosing the four corners of the square
+    # These are in the order top-left, top-right, bottom-right, bottom-left
+    dst = np.float32([
+        [offset, offset],
+        [img_size[0] - offset, offset],
+        [img_size[0] - offset, img_size[1] - offset],
+        [offset, img_size[1] - offset]
+        ])
 
     # Given src and dst points, calculate the perspective transform matrix
     M = cv2.getPerspectiveTransform(src, dst)
